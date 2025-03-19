@@ -9,7 +9,7 @@ import androidx.room.Update
 @Dao
 interface ColorDao {
 
-    @Query("SELECT * FROM colors")
+    @Query("SELECT * FROM Color")
     fun getAll(): List<Color>
 
     @Insert

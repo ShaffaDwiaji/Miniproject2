@@ -4,7 +4,7 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "colors")
+@Entity
 data class Color(
     @PrimaryKey val id: Int,
     @ColumnInfo(name = "hex_value") val hexValue: String?,
