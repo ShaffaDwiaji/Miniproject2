@@ -13,7 +13,7 @@ abstract class ColorDatabase : RoomDatabase() {
         @Volatile
         private var INSTANCE: ColorDatabase? = null
 
-        fun getInstanc(context: Context): ColorDatabase {
+        fun getInstance(context: Context): ColorDatabase {
             return INSTANCE?: synchronized(this) {
                 Room.databaseBuilder(
                     context.applicationContext,
