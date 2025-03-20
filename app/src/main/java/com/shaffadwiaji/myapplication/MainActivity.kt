@@ -1,11 +1,12 @@
-package com.shaffadwiaji.miniproject2
+package com.shaffadwiaji.myapplication
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.shaffadwiaji.myapplication.R
+import java.util.concurrent.Executors
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,8 +21,15 @@ class MainActivity : AppCompatActivity() {
 
 //      Fungsi Database
         val db = ColorDatabase.getInstance(this)
-        val arrayOfColor = db.colorDao().getAll()
-        val colorRed = Color(0, "#FF0000", "Red")
-        db.colorDao().insert(colorRed)
+        val executor = Executors.newSingleThreadExecutor() // Buat background thread
+
+        executor.execute {
+            val colorRed = Color(hexColor = "#ff0000", name = "Red") // Jangan isi ID
+            db.ColorDao().insert(colorRed)
+
+            // Cek apakah data masuk
+            val colors = db.ColorDao().getAll()
+            Log.d("Database", "Colors in DB: $colors")
+        }
     }
 }
