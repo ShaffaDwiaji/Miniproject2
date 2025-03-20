@@ -1,4 +1,4 @@
-package com.shaffadwiaji.miniproject2
+package com.shaffadwiaji.myapplication
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

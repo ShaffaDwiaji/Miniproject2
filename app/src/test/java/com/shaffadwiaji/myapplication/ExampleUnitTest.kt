@@ -1,4 +1,4 @@
-package com.shaffadwiaji.miniproject2
+package com.shaffadwiaji.myapplication
 
 import org.junit.Test
 
